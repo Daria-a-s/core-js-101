@@ -469,8 +469,15 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const a = new Array(n);
+  a.fill(null);
+  return a.map((prev, index) => {
+    a[index] = new Array(n);
+    a[index].fill(0);
+    a[index][index] = 1;
+    return a[index];
+  });
 }
 
 /**
@@ -486,8 +493,13 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const arr = new Array(end - start + 1);
+  arr.fill(null);
+  return arr.map((val, index) => {
+    arr[index] = start + index;
+    return arr[index];
+  });
 }
 
 /**
@@ -501,8 +513,15 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const res = [];
+  arr.map((val) => {
+    if (res.indexOf(val) === -1) {
+      res.push(val);
+    }
+    return val;
+  });
+  return res;
 }
 
 /**
